@@ -15,12 +15,11 @@ object Main {
    * Exercise 1
    */
   def pascal(c: Int, r: Int): Int = {
-    def fatorial(num: Int): Int = {
+    def fatorial(num: Int): Int =
       if (num <= 1)
         1
       else
         num * fatorial(num - 1)
-    }
 
     fatorial(r) / (fatorial(c) * fatorial(r - c))
   }
@@ -28,7 +27,20 @@ object Main {
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    def getParentese(c:List[Char]) :List[Char] =
+      val aux = List[Char]
+      while(!c.isEmpty)
+        if(c.head != "(")
+          
+        
+    if(!chars.isEmpty)
+      if(chars.head == "(")
+      else
+        balance(chars.tail)
+    else
+      true
+  }
 
   /**
    * Exercise 3
