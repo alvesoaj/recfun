@@ -15,31 +15,31 @@ object Main {
    * Exercise 1
    */
   def pascal(c: Int, r: Int): Int = {
-    def fatorial(num: Int): Int =
+    def fatorial(num: Int): Int = {
       if (num <= 1)
-        1
+        return 1
       else
-        num * fatorial(num - 1)
+        return num * fatorial(num - 1)
+    }
 
-    fatorial(r) / (fatorial(c) * fatorial(r - c))
+    return fatorial(r) / (fatorial(c) * fatorial(r - c))
   }
 
   /**
    * Exercise 2
    */
   def balance(chars: List[Char]): Boolean = {
-    def getParentese(c:List[Char]) :List[Char] =
-      val aux = List[Char]
-      while(!c.isEmpty)
-        if(c.head != "(")
-          
-        
-    if(!chars.isEmpty)
-      if(chars.head == "(")
-      else
-        balance(chars.tail)
-    else
-      true
+    var count: Int = 0;
+    def nestedBalance(chars: List[Char]): Boolean = {
+      if (chars.isEmpty)
+        return true
+      else if (chars.head == '(')
+        count = count + 1
+      else if (chars.head == ')')
+        count = count - 1
+      return count >= 0 && nestedBalance(chars.tail);
+    }
+    return nestedBalance(chars)
   }
 
   /**
