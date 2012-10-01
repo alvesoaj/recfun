@@ -17,12 +17,12 @@ object Main {
   def pascal(c: Int, r: Int): Int = {
     def fatorial(num: Int): Int = {
       if (num <= 1)
-        return 1
+        1
       else
-        return num * fatorial(num - 1)
+        num * fatorial(num - 1)
     }
 
-    return fatorial(r) / (fatorial(c) * fatorial(r - c))
+    fatorial(r) / (fatorial(c) * fatorial(r - c))
   }
 
   /**
@@ -32,14 +32,16 @@ object Main {
     var count: Int = 0;
     def nestedBalance(chars: List[Char]): Boolean = {
       if (chars.isEmpty)
-        return true
-      else if (chars.head == '(')
-        count = count + 1
-      else if (chars.head == ')')
-        count = count - 1
-      return count >= 0 && nestedBalance(chars.tail);
+        true
+      else {
+        if (chars.head == '(')
+          count = count + 1
+        else if (chars.head == ')')
+          count = count - 1
+        count >= 0 && nestedBalance(chars.tail);
+      }
     }
-    return nestedBalance(chars)
+    nestedBalance(chars)
   }
 
   /**
@@ -48,19 +50,19 @@ object Main {
   def countChange(money: Int, coins: List[Int]): Int = {
     def countChanger(money: Int, coins: List[Int], cCoin: Int): Int = {
       if (money == 0)
-        return 1
+        1
       else if (money < 0)
-        return 0
+        0
       else if (cCoin < 0)
-        return 0
+        0
       else {
-        return countChanger(money, coins, cCoin - 1) + countChanger(money - coins(cCoin), coins, cCoin)
+        countChanger(money, coins, cCoin - 1) + countChanger(money - coins(cCoin), coins, cCoin)
       }
     }
     if (money > 0)
-      return countChanger(money, coins, coins.length - 1)
+      countChanger(money, coins, coins.length - 1)
     else
-      return 0
+      0
   }
 
 }
